@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">HoguzatAdmin</string>
+    <string-array name="account_num">
+          <item>
+        البحرين
+        </item>
+
+        <item>
+        عمان
+        </item>
+        <item>
+        قطر
+        </item>
+
+        <item>
+        الامارات
+        </item>
+        <item>
+        الكويت
+        </item>
+        <item>
+        السعودية
+        </item>
+    </string-array>
+</resources>
