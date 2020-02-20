@@ -19,7 +19,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activity.Add_servcies"></activity>
+        <activity android:name=".Activity.Add_servcies_"></activity>
+        <activity android:name=".Activity.Add_servcies" />
         <activity android:name=".Activity.Add_stuff_" />
         <activity android:name=".Activity.Add_stuff" />
         <activity android:name=".Activity.CardView" />
