@@ -97,16 +97,7 @@
             android:background="@drawable/shaperegester"
             android:visibility="gone" />
 
-        <com.facebook.login.widget.LoginButton
-            android:id="@+id/login_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:textColor="#ffffff"
-            android:background="@drawable/shape2"
-            android:visibility="gone"  />
+       
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/textViewLinkguest"

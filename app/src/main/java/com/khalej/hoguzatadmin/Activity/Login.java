@@ -52,12 +52,12 @@ public class Login extends AppCompatActivity {
     ProgressDialog progressDialog;
     String codee;
     LoginButton loginButton;
-    CallbackManager callbackManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FacebookSdk.sdkInitialize(getApplicationContext());
+
         setContentView(R.layout.activity_login);
 
         Calligrapher calligrapher = new Calligrapher(this);
