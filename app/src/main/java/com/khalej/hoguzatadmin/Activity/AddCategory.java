@@ -1,6 +1,7 @@
 package com.khalej.hoguzatadmin.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,11 +12,24 @@ import com.khalej.hoguzatadmin.R;
 
 public class AddCategory extends AppCompatActivity {
     RelativeLayout relativelayout1,relativelayout2,relativelayout3,relativelayout4;
-
+    Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_category);
+        toolbar = (Toolbar) findViewById(R.id.app_bar);
+
+        this.setTitle("");
+        toolbar.setNavigationIcon(R.drawable.ic_keyboard_arrow_left_black_24dp);
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        finish();
+                    }
+                }
+        );
         relativelayout1=findViewById(R.id.relativelayout1);
         relativelayout2=findViewById(R.id.relativelayout2);
         relativelayout3=findViewById(R.id.relativelayout3);

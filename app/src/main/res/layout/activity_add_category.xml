@@ -12,8 +12,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
+        <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:local="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            local:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            local:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+                android:text="اختر القسم"
+                android:layout_gravity="center"
+                android:id="@+id/toolbar_title" />
+        </androidx.appcompat.widget.Toolbar>
         <LinearLayout
             android:layout_width="320dp"
+            android:layout_below="@id/app_bar"
             android:layout_height="wrap_content"
             android:weightSum="4"
             android:layout_centerInParent="true"

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-
+import com.khalej.hoguzatadmin.Activity.Add_servcies_;
 import com.khalej.hoguzatadmin.R;
 import com.khalej.hoguzatadmin.model.Apiclient_home;
 import com.khalej.hoguzatadmin.model.apiinterface_home;
@@ -28,12 +29,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class RecyclerAdapter_deletefirst extends RecyclerView.Adapter<RecyclerAdapter_deletefirst.MyViewHolder> {
+public class RecyclerAdapter_first extends RecyclerView.Adapter<RecyclerAdapter_first.MyViewHolder> {
     Typeface myTypeface;
     private Context context;
     List<contact_category> contactslist;
      apiinterface_home apiinterface;
-    public RecyclerAdapter_deletefirst(Context context, List<contact_category> contactslist){
+    public RecyclerAdapter_first(Context context, List<contact_category> contactslist){
         this.contactslist=contactslist;
         this.context=context;
 
@@ -52,21 +53,14 @@ public class RecyclerAdapter_deletefirst extends RecyclerView.Adapter<RecyclerAd
 
 
     holder.Name.setText(contactslist.get(position).getName());
-    Glide.with(context).load(contactslist.get(position).getImage()).error(R.drawable.logo).into(holder.image);
-    holder.delete.setOnClickListener(new View.OnClickListener() {
+
+        Glide.with(context).load(contactslist.get(position).getImage()).error(R.drawable.logo).into(holder.image);
+       holder.itemView.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               new AlertDialog.Builder(context)
-                       .setTitle("HandMade App")
-                       .setMessage("هل انت متأكد انك تريد المسح ؟")
-                       .setIcon(android.R.drawable.ic_dialog_alert)
-                       .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-
-                           public void onClick(DialogInterface dialog, int whichButton) {
-                               int id=contactslist.get(position).getId();
-                               fetchInfo(id);
-                           }})
-                       .setNegativeButton(android.R.string.no, null).show();
+               Intent intent =new Intent(context, Add_servcies_.class);
+               intent.putExtra("id",contactslist.get(position).getId());
+               context.startActivity(intent);
            }
        });
     }
@@ -88,29 +82,5 @@ public static class MyViewHolder extends RecyclerView.ViewHolder {
 
     }
 }
-    public void fetchInfo(int id) {
 
-        apiinterface= Apiclient_home.getapiClient().create(apiinterface_home.class);
-        Call<ResponseBody> call = null;
-        call=apiinterface.delete_first(id);
-
-
-
-        call.enqueue(new Callback<ResponseBody>() {
-            @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-
-                Toast.makeText(context,"تم المسح",Toast.LENGTH_LONG).show();
-                ((Activity)context).finish();
-            }
-
-            @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-
-            }
-        });
-
-
-
-    }
 }

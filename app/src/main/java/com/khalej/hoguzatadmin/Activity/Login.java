@@ -88,8 +88,11 @@ public class Login extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                startActivity(new Intent(Login.this,MainActivity.class));
+           if(textInputEditTextphone.getText().toString().equals("123")&&textInputEditTextpassword.getText().toString().equals("123")){
+                startActivity(new Intent(Login.this,MainActivity.class));}
+                else{
+                    Toast.makeText(Login.this, "خطأ برقم الهاتف او كلمة المرور" ,Toast.LENGTH_LONG).show();
+                   }
             }
         });
 

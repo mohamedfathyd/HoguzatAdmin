@@ -64,5 +64,15 @@ public interface apiinterface_home {
                                                       @Field("country") int country,@Field("lat") Double lat,
                                                       @Field("lng") Double lng);
 
+    @FormUrlEncoded
+    @POST("Hoguzat_add_stuff.php")
+    Call<ResponseBody> getcontacts_add_first_stuff(@Field("sub_id")int id,@Field("name") String name,
+                                                      @Field("image") String image);
+
+    @FormUrlEncoded
+    @POST("Hoguzat_add_servcies.php")
+    Call<ResponseBody> getcontacts_add_first_servcies(@Field("sub_id")int id,@Field("name") String name,
+                                                   @Field("price") Double price);
+
 }
 

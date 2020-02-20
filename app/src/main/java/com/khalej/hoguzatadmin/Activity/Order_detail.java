@@ -71,8 +71,8 @@ public class Order_detail extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 new AlertDialog.Builder(Order_detail.this)
-                        .setTitle("HandMade App")
-                        .setMessage("هل هذا الطلب جاهز للتوصيل بالفعل؟")
+                        .setTitle("Hugozat App")
+                        .setMessage("هل هذا الحجز تم بالفعل للعميل؟")
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
@@ -103,8 +103,8 @@ public class Order_detail extends AppCompatActivity {
                 progressDialog.dismiss();
 
                 AlertDialog.Builder dlgAlert = new AlertDialog.Builder(Order_detail.this);
-                dlgAlert.setMessage("تم تأكيد التنفيذ");
-                dlgAlert.setTitle("HandMade App");
+                dlgAlert.setMessage("تم تأكيد الحجز");
+                dlgAlert.setTitle("Hugozat App");
                 dlgAlert.setPositiveButton("OK", null);
                 dlgAlert.setCancelable(true);
                 dlgAlert.create().show();
