@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -47,11 +48,12 @@ public class CardView extends AppCompatActivity {
     ProgressDialog progressDialog;
     Spinner spinner;
     TextInputLayout textInputLayoutname,textInputLayoutaddress,textInputLayoutphone;
-    TextInputEditText textInputEditTextname,textInputEditTextNameAR,textInputEditTextphone;
+    TextInputEditText textInputEditTextname,textInputEditTextNameAR,textInputEditTextphone,textInputEditTextcity;
     Double lat;
     Double lng;
     int getCategory_id;
     int gender_id;
+    int country=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,7 +82,17 @@ public class CardView extends AppCompatActivity {
                 selectImage();
             }
         });
-        spinner.getSelectedItem();
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                country=position+1;
+                 }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         regesiter.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,6 +120,7 @@ public class CardView extends AppCompatActivity {
         textInputEditTextname=(TextInputEditText)findViewById(R.id.textInputEditTextName);
         textInputEditTextNameAR=(TextInputEditText)findViewById(R.id.textInputEditTextDeatails);
         textInputEditTextphone=findViewById(R.id.textInputEditTextoffers);
+        textInputEditTextcity=findViewById(R.id.textInputEditTextcity);
         regesiter=(AppCompatButton)findViewById(R.id.appCompatButtonRegister);
     }
     private void selectImage() {
@@ -159,9 +172,9 @@ public class CardView extends AppCompatActivity {
         progressDialog = ProgressDialog.show(CardView.this,"جارى تسجيل الأعلان الجديد","Please wait...",false,false);
         progressDialog.show();
         apiinterface= Apiclient_home.getapiClient().create(apiinterface_home.class);
-        Call<ResponseBody> call = apiinterface.getcontacts_add_first_category(textInputEditTextname.getText().toString()
+        Call<ResponseBody> call = apiinterface.getcontacts_add_first_category(getCategory_id,textInputEditTextname.getText().toString()
                 ,textInputEditTextNameAR.getText().toString(),textInputEditTextphone.getText().toString()
-                ,image,spinner.getSelectedItemPosition(),lat,lng);
+                ,image,country,lat,lng,gender_id,textInputEditTextcity.getText().toString());
 
         call.enqueue(new Callback<ResponseBody>() {
             @Override

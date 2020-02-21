@@ -46,32 +46,35 @@ public interface apiinterface_home {
     );
 
     @FormUrlEncoded
-    @POST("montag/handmade/HandMade_order_ready.php")
+    @POST("montag/Hoguzat/Hoguzat_delete_order.php")
     Call<ResponseBody> update_status2(@Field("id") int id);
-    @GET("montag/handmade/HandMade_all_neworders.php")
+    @GET("montag/Hoguzat/Hoguzat_all_neworders.php")
     Call<List<contact_order>> get_all_neworders();
 
     @FormUrlEncoded
-    @POST("montag/handmade/HandMade_delete_generalcategory.php")
+    @POST("montag/Hoguzat/Hoguzat_delete_category.php")
     Call<ResponseBody> delete_first(@Field("id") int id);
-    @GET("montag/handmade/HandMade_all_generalcategory.php")
+    @GET("montag/Hoguzat/Hoguzat_all_subcategory.php")
     Call<List<contact_category>> getcontacts_first();
     @FormUrlEncoded
-    @POST("Hoguzat_add_category.php")
-    Call<ResponseBody> getcontacts_add_first_category(@Field("name") String name,@Field("details") String details,
+    @POST("montag/Hoguzat/Hoguzat_add_category.php")
+    Call<ResponseBody> getcontacts_add_first_category(@Field("id") int id,@Field("name") String name,@Field("details") String details,
                                                       @Field("offers") String offers,
                                                       @Field("image") String image,
                                                       @Field("country") int country,@Field("lat") Double lat,
-                                                      @Field("lng") Double lng);
+                                                      @Field("lng") Double lng,
+                                                      @Field("gender") int gender,
+                                                      @Field("city") String city
+                                                      );
 
     @FormUrlEncoded
-    @POST("Hoguzat_add_stuff.php")
-    Call<ResponseBody> getcontacts_add_first_stuff(@Field("sub_id")int id,@Field("name") String name,
+    @POST("montag/Hoguzat/Hoguzat_add_stuff.php")
+    Call<ResponseBody> getcontacts_add_first_stuff(@Field("id")int id,@Field("name") String name,
                                                       @Field("image") String image);
 
     @FormUrlEncoded
-    @POST("Hoguzat_add_servcies.php")
-    Call<ResponseBody> getcontacts_add_first_servcies(@Field("sub_id")int id,@Field("name") String name,
+    @POST("montag/Hoguzat/Hoguzat_add_servcies.php")
+    Call<ResponseBody> getcontacts_add_first_servcies(@Field("id")int id,@Field("name") String name,
                                                    @Field("price") Double price);
 
 }

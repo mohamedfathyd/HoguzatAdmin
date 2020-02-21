@@ -88,7 +88,7 @@ public class Login extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-           if(textInputEditTextphone.getText().toString().equals("123")&&textInputEditTextpassword.getText().toString().equals("123")){
+           if(textInputEditTextphone.getText().toString().equals("0123456789")&&textInputEditTextpassword.getText().toString().equals("hoguzat@7793")){
                 startActivity(new Intent(Login.this,MainActivity.class));}
                 else{
                     Toast.makeText(Login.this, "خطأ برقم الهاتف او كلمة المرور" ,Toast.LENGTH_LONG).show();

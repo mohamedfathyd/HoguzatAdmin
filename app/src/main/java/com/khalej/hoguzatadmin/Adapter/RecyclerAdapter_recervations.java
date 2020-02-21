@@ -41,7 +41,7 @@ public class RecyclerAdapter_recervations extends RecyclerView.Adapter<RecyclerA
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
 
 
-        holder.Name.setText("اسم صاحب الطلب :"+contactslist.get(position).getName());
+        holder.Name.setText("اسم صاحب الحجز :"+contactslist.get(position).getName());
         holder.finish_date.setText("الهاتف :" +contactslist.get(position).getPhone());
         holder.price.setText("البريد الألكتروني :" +contactslist.get(position).getAddress());
         holder.idd.setText(contactslist.get(position).getPrice()+"");

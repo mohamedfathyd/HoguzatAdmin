@@ -68,7 +68,7 @@
             android:layout_width="0dp"
             android:layout_weight=".9"
 
-            android:background="@drawable/mann"
+            android:background="@drawable/man"
             android:layout_height="180dp" >
             <RelativeLayout
                 android:layout_width="match_parent"
